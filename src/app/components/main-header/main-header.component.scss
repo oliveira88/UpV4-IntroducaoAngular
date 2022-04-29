@@ -1,0 +1,32 @@
+header {
+  height: 80px;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 45px;
+    width: 45px;
+    margin-left: 29px;
+  }
+}
+
+.nav-list {
+  width: 100%;
+  .nav-items {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+.nav-list .nav-items li a {
+  padding: 8px;
+  color: #fff;
+}
+.nav-list .nav-items li a.active {
+  padding: 4px 8px;
+  background-color: #fff;
+  color: var(--color-primary);
+  border-radius: 2px 8px;
+  font-weight: 600;
+}

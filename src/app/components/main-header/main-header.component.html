@@ -1,0 +1,10 @@
+<header>
+  <img src="assets/itix-logo.png" alt="Logo itix" />
+  <nav class="nav-list">
+    <ul class="nav-items">
+      <li *ngFor="let item of areas">
+        <a [href]="item.href" [class.active]="item.ativo">{{ item.nome }}</a>
+      </li>
+    </ul>
+  </nav>
+</header>
