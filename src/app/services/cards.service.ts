@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Card } from './models/card';
+import { Card } from '../models/card';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CardsService {
   constructor() {}
 
