@@ -7,10 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MainHeaderComponent implements OnInit {
   areas = [
-    { nome: 'Home', ativo: true, href: '/home' },
-    { nome: 'Blog', ativo: false, href: '/blog' },
-    { nome: 'Contato', ativo: false, href: '/contato' },
-    { nome: 'Admin', ativo: false, href: '/admin' }
+    { nome: 'Home', href: '/home' },
+    { nome: 'Blog', href: '/blog' },
+    { nome: 'Contato', href: '/contato' },
+    { nome: 'Admin', href: '/admin' }
   ];
   constructor() {}
   ngOnInit(): void {}

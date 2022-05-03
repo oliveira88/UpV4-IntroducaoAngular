@@ -3,7 +3,7 @@
   <nav class="nav-list">
     <ul class="nav-items">
       <li *ngFor="let item of areas">
-        <a [href]="item.href" [class.active]="item.ativo">{{ item.nome }}</a>
+        <a [routerLink]="item.href" routerLinkActive="active">{{ item.nome }}</a>
       </li>
     </ul>
   </nav>
