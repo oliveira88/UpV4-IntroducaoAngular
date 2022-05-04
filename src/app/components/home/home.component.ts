@@ -1,13 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Card } from 'src/app/models/card';
+import { CardsService } from 'src/app/services/cards.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  constructor(private router: Router) {}
+export class HomeComponent implements OnInit, OnDestroy {
+  constructor(private cardService: CardsService) {}
 
-  ngOnInit(): void {}
+  cards: Card[];
+  subscriptions: Array<Subscription>;
+
+  ngOnInit(): void {
+    this.obterCards();
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
+    //NÃO DEIXAR MEMORY LEAK
+  }
+
+  obterCards() {
+    const sub = this.cardService.obterCards().subscribe(response => {
+      this.cards = response.data;
+    });
+    console.log('OQUE SERA QUE PRINTOU ?:', this.cards);
+    this.subscriptions.push(sub);
+  }
 }

@@ -8,10 +8,10 @@ import { CardComponent } from './components/card/card.component';
 import { CardsService } from './services/cards.service';
 import { ContatoModule } from './modules/contato/contato.module';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent, MainHeaderComponent],
-  imports: [BrowserModule, FormsModule, ContatoModule, AppRoutingModule],
-  providers: [CardsService],
+  imports: [BrowserModule, FormsModule, ContatoModule, AppRoutingModule, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -7,18 +7,11 @@ import { CardsService } from './services/cards.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  cards: Card[];
   // carro: Carro;
-  constructor(private cardService: CardsService) {
+  constructor() {
     // this.carro = new Carro();
     // this.cardService = new CardsService(this.carro);
   }
 
-  ngOnInit(): void {
-    this.obterCards();
-  }
-
-  obterCards() {
-    this.cards = this.cardService.obterCards();
-  }
+  ngOnInit(): void {}
 }

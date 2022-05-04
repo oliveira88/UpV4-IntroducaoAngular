@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Card } from '../models/card';
-
+import { Retorno } from '../models/retorno';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable()
 export class CardsService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  obterCards(): Card[] {
-    let url = 'meuservidor.com';
-    //...
-    return [
-      { titulo: 'Vagas Java', descricao: 'sim' },
-      { titulo: 'Vagas C#', descricao: 'nao' },
-      { titulo: 'Vagas Node', descricao: 'talvez' },
-      { titulo: 'Vagas Node', descricao: 'talvez' }
-    ];
+  obterCards(): Observable<Retorno<Card[]>> {
+    const url = 'assets/retorno.json';
+    const response = this.http.get<Retorno<Card[]>>(url);
+    return response;
   }
 }
