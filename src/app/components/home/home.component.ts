@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private cardService: CardsService) {}
 
   cards: Card[];
-  subscriptions: Array<Subscription>;
+  subscriptions: Array<Subscription> = [];
 
   ngOnInit(): void {
     this.obterCards();
@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(response => {
         this.cards = response;
       });
-    console.log('OQUE SERA QUE PRINTOU ?:', this.cards);
     this.subscriptions.push(sub);
   }
 }
