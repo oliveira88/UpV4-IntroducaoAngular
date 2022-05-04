@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Card } from 'src/app/models/card';
 import { CardsService } from 'src/app/services/cards.service';
 
@@ -23,9 +24,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   obterCards() {
-    const sub = this.cardService.obterCards().subscribe(response => {
-      this.cards = response.data;
-    });
+    const sub = this.cardService
+      .obterCards()
+      .pipe(map(r => r.data))
+      .subscribe(response => {
+        this.cards = response;
+      });
     console.log('OQUE SERA QUE PRINTOU ?:', this.cards);
     this.subscriptions.push(sub);
   }
